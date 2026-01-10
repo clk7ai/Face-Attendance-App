@@ -1,0 +1,117 @@
+
+> attendance-web-app@0.0.0 build
+> vite build
+
+[36mvite v7.3.0 [32mbuilding client environment for production...[36m[39m
+transforming...
+node.exe : Error: Can't resolve '../../tailwind.config.js' 
+in 'C:\Smart Simulator\SS_Support_Lib\RestPythonGUI_V_3.0\Att
+endanceWebApp\src'
+At line:1 char:1
++ & "C:\nvm4w\nodejs/node.exe" 
+"C:\nvm4w\nodejs/node_modules/npm/bin/np ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Error: Can't re 
+   ...anceWebApp\src':String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    at finishWithoutResolve (C:\Smart Simulator\SS_Support_Li
+b\RestPythonGUI_V_3.0\AttendanceWebApp\node_modules\enhanced-
+resolve\lib\Resolver.js:565:18)
+    at C:\Smart Simulator\SS_Support_Lib\RestPythonGUI_V_3.0\
+AttendanceWebApp\node_modules\enhanced-resolve\lib\Resolver.j
+s:657:14
+    at C:\Smart Simulator\SS_Support_Lib\RestPythonGUI_V_3.0\
+AttendanceWebApp\node_modules\enhanced-resolve\lib\Resolver.j
+s:718:5
+    at eval (eval at create (C:\Smart Simulator\SS_Support_Li
+b\RestPythonGUI_V_3.0\AttendanceWebApp\node_modules\tapable\l
+ib\HookCodeFactory.js:31:10), <anonymous>:15:1)
+    at C:\Smart Simulator\SS_Support_Lib\RestPythonGUI_V_3.0\
+AttendanceWebApp\node_modules\enhanced-resolve\lib\Resolver.j
+s:718:5
+    at eval (eval at create (C:\Smart Simulator\SS_Support_Li
+b\RestPythonGUI_V_3.0\AttendanceWebApp\node_modules\tapable\l
+ib\HookCodeFactory.js:31:10), <anonymous>:27:1)
+    at C:\Smart Simulator\SS_Support_Lib\RestPythonGUI_V_3.0\
+AttendanceWebApp\node_modules\enhanced-resolve\lib\Descriptio
+nFilePlugin.js:89:43
+    at C:\Smart Simulator\SS_Support_Lib\RestPythonGUI_V_3.0\
+AttendanceWebApp\node_modules\enhanced-resolve\lib\Resolver.j
+s:718:5
+    at eval (eval at create (C:\Smart Simulator\SS_Support_Li
+b\RestPythonGUI_V_3.0\AttendanceWebApp\node_modules\tapable\l
+ib\HookCodeFactory.js:31:10), <anonymous>:15:1)
+    at C:\Smart Simulator\SS_Support_Lib\RestPythonGUI_V_3.0\
+AttendanceWebApp\node_modules\enhanced-resolve\lib\Resolver.j
+s:718:5 {
+  details: "resolve '../../tailwind.config.js' in 'C:\\Smart 
+Simulator\\SS_Support_Lib\\RestPythonGUI_V_3.0\\AttendanceWeb
+App\\src'\n" +
+    '  using description file: C:\\Smart Simulator\\SS_Suppor
+t_Lib\\RestPythonGUI_V_3.0\\AttendanceWebApp\\package.json 
+(relative path: ./src)\n' +
+    '    using description file: C:\\Smart 
+Simulator\\SS_Support_Lib\\RestPythonGUI_V_3.0\\package.json 
+(relative path: ./tailwind.config.js)\n' +
+    '      no extension\n' +
+    "        C:\\Smart Simulator\\SS_Support_Lib\\RestPythonG
+UI_V_3.0\\tailwind.config.js doesn't exist\n" +
+    '      .js\n' +
+    "        C:\\Smart Simulator\\SS_Support_Lib\\RestPythonG
+UI_V_3.0\\tailwind.config.js.js doesn't exist\n" +
+    '      .json\n' +
+    "        C:\\Smart Simulator\\SS_Support_Lib\\RestPythonG
+UI_V_3.0\\tailwind.config.js.json doesn't exist\n" +
+    '      .node\n' +
+    "        C:\\Smart Simulator\\SS_Support_Lib\\RestPythonG
+UI_V_3.0\\tailwind.config.js.node doesn't exist\n" +
+    '      .ts\n' +
+    "        C:\\Smart Simulator\\SS_Support_Lib\\RestPythonG
+UI_V_3.0\\tailwind.config.js.ts doesn't exist\n" +
+    '      as directory\n' +
+    "        C:\\Smart Simulator\\SS_Support_Lib\\RestPythonG
+UI_V_3.0\\tailwind.config.js doesn't exist"
+}
+[32m???[39m 1024 modules transformed.
+[31m???[39m Build failed in 2.16s
+[31merror during build:
+[31m[vite:css] [postcss] tailwindcss: C:/Smart Simulator/SS_
+Support_Lib/RestPythonGUI_V_3.0/AttendanceWebApp/src/index.cs
+s:1:1: Can't resolve '../../tailwind.config.js' in 'C:\Smart 
+Simulator\SS_Support_Lib\RestPythonGUI_V_3.0\AttendanceWebApp
+\src'[31m
+file: [36mC:/Smart Simulator/SS_Support_Lib/RestPythonGUI_V_
+3.0/AttendanceWebApp/src/index.css:1:0[31m
+    at Input.error (C:\Smart Simulator\SS_Support_Lib\RestPyt
+honGUI_V_3.0\AttendanceWebApp\node_modules\postcss\lib\input.
+js:135:16)
+    at Root.error (C:\Smart Simulator\SS_Support_Lib\RestPyth
+onGUI_V_3.0\AttendanceWebApp\node_modules\postcss\lib\node.js
+:146:32)
+    at Object.Once (C:\Smart Simulator\SS_Support_Lib\RestPyt
+honGUI_V_3.0\AttendanceWebApp\node_modules\@tailwindcss\postc
+ss\dist\index.js:10:6911)
+    at async LazyResult.runAsync (C:\Smart Simulator\SS_Suppo
+rt_Lib\RestPythonGUI_V_3.0\AttendanceWebApp\node_modules\post
+css\lib\lazy-result.js:293:11)
+    at async runPostCSS (file:///C:/Smart%20Simulator/SS_Supp
+ort_Lib/RestPythonGUI_V_3.0/AttendanceWebApp/node_modules/vit
+e/dist/node/chunks/config.js:30144:19)
+    at async compilePostCSS (file:///C:/Smart%20Simulator/SS_
+Support_Lib/RestPythonGUI_V_3.0/AttendanceWebApp/node_modules
+/vite/dist/node/chunks/config.js:30128:6)
+    at async compileCSS (file:///C:/Smart%20Simulator/SS_Supp
+ort_Lib/RestPythonGUI_V_3.0/AttendanceWebApp/node_modules/vit
+e/dist/node/chunks/config.js:30058:26)
+    at async Object.handler (file:///C:/Smart%20Simulator/SS_
+Support_Lib/RestPythonGUI_V_3.0/AttendanceWebApp/node_modules
+/vite/dist/node/chunks/config.js:29591:54)
+    at async transform (file:///C:/Smart%20Simulator/SS_Suppo
+rt_Lib/RestPythonGUI_V_3.0/AttendanceWebApp/node_modules/roll
+up/dist/es/shared/node-entry.js:21283:16)
+    at async ModuleLoader.addModuleSource (file:///C:/Smart%2
+0Simulator/SS_Support_Lib/RestPythonGUI_V_3.0/AttendanceWebAp
+p/node_modules/rollup/dist/es/shared/node-entry.js:21497:36)
+[39m

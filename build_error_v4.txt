@@ -1,0 +1,53 @@
+
+> attendance-web-app@0.0.0 build
+> vite build
+
+[36mvite v7.3.0 [32mbuilding client environment for production...[36m[39m
+transforming...
+[32m???[39m 1022 modules transformed.
+node.exe : [31m???[39m Build failed in 1.87s
+At line:1 char:1
++ & "C:\nvm4w\nodejs/node.exe" 
+"C:\nvm4w\nodejs/node_modules/npm/bin/np ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([31m???[39m B 
+   uild failed in 1.87s:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[31merror during build:
+[31m[vite:css] [postcss] C:/Smart Simulator/SS_Support_Lib/R
+estPythonGUI_V_3.0/AttendanceWebApp/src/index.css:36:1: 
+Unexpected }[31m
+file: [36mC:/Smart Simulator/SS_Support_Lib/RestPythonGUI_V_
+3.0/AttendanceWebApp/src/index.css:36:0[31m
+    at Input.error (C:\Smart Simulator\SS_Support_Lib\RestPyt
+honGUI_V_3.0\AttendanceWebApp\node_modules\postcss\lib\input.
+js:135:16)
+    at Parser.unexpectedClose (C:\Smart Simulator\SS_Support_
+Lib\RestPythonGUI_V_3.0\AttendanceWebApp\node_modules\postcss
+\lib\parser.js:587:22)
+    at Parser.end (C:\Smart Simulator\SS_Support_Lib\RestPyth
+onGUI_V_3.0\AttendanceWebApp\node_modules\postcss\lib\parser.
+js:330:12)
+    at Parser.parse (C:\Smart Simulator\SS_Support_Lib\RestPy
+thonGUI_V_3.0\AttendanceWebApp\node_modules\postcss\lib\parse
+r.js:456:16)
+    at parse (C:\Smart Simulator\SS_Support_Lib\RestPythonGUI
+_V_3.0\AttendanceWebApp\node_modules\postcss\lib\parse.js:11:
+12)
+    at new LazyResult (C:\Smart Simulator\SS_Support_Lib\Rest
+PythonGUI_V_3.0\AttendanceWebApp\node_modules\postcss\lib\laz
+y-result.js:165:16)
+    at Processor.process (C:\Smart Simulator\SS_Support_Lib\R
+estPythonGUI_V_3.0\AttendanceWebApp\node_modules\postcss\lib\
+processor.js:53:14)
+    at runPostCSS (file:///C:/Smart%20Simulator/SS_Support_Li
+b/RestPythonGUI_V_3.0/AttendanceWebApp/node_modules/vite/dist
+/node/chunks/config.js:30144:68)
+    at async compilePostCSS (file:///C:/Smart%20Simulator/SS_
+Support_Lib/RestPythonGUI_V_3.0/AttendanceWebApp/node_modules
+/vite/dist/node/chunks/config.js:30128:6)
+    at async compileCSS (file:///C:/Smart%20Simulator/SS_Supp
+ort_Lib/RestPythonGUI_V_3.0/AttendanceWebApp/node_modules/vit
+e/dist/node/chunks/config.js:30058:26)[39m

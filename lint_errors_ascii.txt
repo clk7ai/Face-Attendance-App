@@ -1,0 +1,63 @@
+
+> attendance-web-app@0.0.0 lint
+> eslint .
+
+
+C:\Smart Simulator\SS_Support_Lib\RestPythonGUI_V_3.0\AttendanceWebApp\src\App.jsx
+  56:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  54 |
+  55 |   useEffect(() => {
+> 56 |     refreshData();
+     |     ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  57 |     const interval = setInterval(refreshData, 5000);
+  58 |     return () => clearInterval(interval);
+  59 |   }, []);  react-hooks/set-state-in-effect
+  71:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  69 |     }
+  70 |
+> 71 |     setStats({
+     |     ^^^^^^^^ Avoid calling setState() directly within an effect
+  72 |       users: filteredU.length,
+  73 |       present: filteredR.length
+  74 |     });                                                         react-hooks/set-state-in-effect
+
+C:\Smart Simulator\SS_Support_Lib\RestPythonGUI_V_3.0\AttendanceWebApp\src\components\CameraFeed.jsx
+  35:26  warning  The ref value 'videoRef.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'videoRef.current' to a variable inside the effect, and use that variable in the cleanup function  react-hooks/exhaustive-deps
+
+C:\Smart Simulator\SS_Support_Lib\RestPythonGUI_V_3.0\AttendanceWebApp\src\pages\AttendancePage.jsx
+  19:9  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  17 |     useEffect(() => {
+  18 |         const loadedUsers = getUsers();
+> 19 |         setUsers(loadedUsers);
+     |         ^^^^^^^^ Avoid calling setState() directly within an effect
+  20 |         if (loadedUsers.length > 0 && isModelLoaded) {
+  21 |             matcherRef.current = createMatcher(loadedUsers);
+  22 |         }  react-hooks/set-state-in-effect
+  79:8  warning  React Hook useEffect has a missing dependency: 'startScanning'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react-hooks/exhaustive-deps
+
+C:\Smart Simulator\SS_Support_Lib\RestPythonGUI_V_3.0\AttendanceWebApp\src\pages\RegistrationPage.jsx
+  1:35  error  'useEffect' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+??? 6 problems (4 errors, 2 warnings)
+
