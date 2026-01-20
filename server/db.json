@@ -1,5 +1,44 @@
-﻿{
+{
   "users": [],
-  "logs": {},
-  "lastSync": 0
+  "log": {
+    "K and D": {
+      "name": "K and D",
+      "firstSeen": "2026-01-20T15:37:54.813Z",
+      "lastSeen": "2026-01-20T20:02:53.931Z",
+      "manualIn": "2026-01-20T15:37:54.846Z",
+      "manualOut": null,
+      "entity": "Malkajgiri",
+      "lastUpdated": 1768939373931
+    },
+    "Kedar": {
+      "name": "Kedar",
+      "firstSeen": "2026-01-20T19:30:51.792Z",
+      "lastSeen": "2026-01-20T20:10:21.511Z",
+      "manualIn": null,
+      "manualOut": null,
+      "entity": "Malkajgiri",
+      "lastUpdated": 1768939821511
+    }
+  },
+  "admins": [
+    {
+      "username": "admin",
+      "password": "admin123",
+      "role": "super_admin",
+      "entity": "All"
+    },
+    {
+      "username": "SNK-Malkajgiri",
+      "password": "123",
+      "entity": "SNK-Malkajgiri",
+      "role": "branch_admin"
+    },
+    {
+      "username": "SNK-Manikonda",
+      "password": "123",
+      "entity": "SNK-Manikonda",
+      "role": "branch_admin"
+    }
+  ],
+  "lastSync": 1768943086759
 }

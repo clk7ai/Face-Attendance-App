@@ -1,0 +1,485 @@
+[2026-01-20T15:12:09.003Z] DB Read Error: SyntaxError: Unexpected token '﻿', "﻿{
+  "user"... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at getData (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:29:21)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:67:20
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+[2026-01-20T21:09:00.449Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:10:05.871Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:10:10.030Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:10:13.278Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:11:28.891Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:12:51.788Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:14:44.043Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:17:56.252Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:18:10.066Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:18:17.935Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:19:08.288Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:21:22.740Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:22:53.356Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:22:53.386Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:23:11.024Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:23:24.680Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:23:58.205Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:28:19.824Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:28:28.114Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:34:12.104Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:34:47.481Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:35:35.673Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:35:56.134Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:36:11.369Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:36:36.413Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:36:44.719Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:39:41.258Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:40:29.834Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:47:44.532Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:54:00.332Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T21:59:45.195Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T22:02:28.888Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T22:02:39.869Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T22:02:57.202Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T22:03:11.083Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T22:03:23.970Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T22:03:48.647Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T22:04:35.005Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T22:05:56.625Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T22:05:56.638Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T22:06:05.028Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T22:07:10.627Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)
+[2026-01-20T22:07:52.003Z] POST /api/sync Error: ReferenceError: admins is not defined
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\index.js:159:9
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:295:15
+    at processParams (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:582:12)
+    at next (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\router\index.js:291:5)
+    at read (C:\Smart Simulator\SS_Support_Lib\AttendanceWebApp\server\node_modules\body-parser\lib\read.js:42:5)

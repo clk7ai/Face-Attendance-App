@@ -1,9 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Camera, XCircle } from 'lucide-react';
+import { twMerge } from 'tailwind-merge';
 
-const CameraFeed = ({ onVideoReady, overlayRef, isActive = true }) => {
+const CameraFeed = ({ onVideoReady, overlayRef, isActive = true, className }) => {
     const videoRef = useRef(null);
     const [error, setError] = useState(null);
+
+    // ... (rest of useEffect logic remains slightly different in line count, be careful)
+    // Actually, I can just replace the definition and the return.
 
     useEffect(() => {
         let currentStream = null;
@@ -15,10 +19,9 @@ const CameraFeed = ({ onVideoReady, overlayRef, isActive = true }) => {
                 if (!isActive) return;
 
                 const stream = await navigator.mediaDevices.getUserMedia({
-                    video: { width: 640, height: 480 } // Standard resolution for performance
+                    video: { width: 640, height: 480 } // Standard resolution
                 });
 
-                // If component unmounted while waiting for camera, stop immediately
                 if (!isMounted) {
                     stream.getTracks().forEach(track => track.stop());
                     return;
@@ -31,7 +34,7 @@ const CameraFeed = ({ onVideoReady, overlayRef, isActive = true }) => {
             } catch (err) {
                 if (isMounted) {
                     console.error("Camera access denied:", err);
-                    setError("Camera access required. Please allow permission.");
+                    setError("Camera access required.");
                 }
             }
         };
@@ -56,7 +59,7 @@ const CameraFeed = ({ onVideoReady, overlayRef, isActive = true }) => {
     };
 
     return (
-        <div className="relative w-full max-w-[640px] aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-gray-800">
+        <div className={twMerge("relative w-full max-w-[640px] aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-gray-800", className)}>
             {error ? (
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-red-400 p-4 text-center">
                     <XCircle size={48} className="mb-2" />

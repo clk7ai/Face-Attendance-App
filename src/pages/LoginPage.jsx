@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../services/authService';
-import { Shield, Lock, AlertCircle, Eye, EyeOff } from 'lucide-react';
+import { Shield, Lock, AlertCircle, Eye, EyeOff, User } from 'lucide-react';
 
 const LoginPage = () => {
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -15,8 +16,8 @@ const LoginPage = () => {
         setError('');
         setIsLoading(true);
 
-        setTimeout(() => {
-            const result = login(password);
+        setTimeout(async () => {
+            const result = await login(username, password);
 
             if (result.success) {
                 navigate('/');
@@ -39,24 +40,38 @@ const LoginPage = () => {
                     <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent mb-2">
                         FaceGuard Admin
                     </h1>
-                    <p className="text-gray-400 text-sm">Enter your password to continue</p>
+                    <p className="text-gray-400 text-sm">Sign in to access dashboard</p>
                 </div>
 
                 {/* Login Form */}
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                         <label className="text-sm text-muted uppercase tracking-wider font-semibold flex items-center gap-2 mb-3">
-                            <Lock size={14} /> Admin Password
+                            <User size={14} /> Username
+                        </label>
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            placeholder="Enter admin username"
+                            disabled={isLoading}
+                            className="w-full bg-black/20 border border-gray-700 rounded-lg p-3 text-white focus:border-primary outline-none disabled:opacity-50"
+                            autoFocus
+                        />
+                    </div>
+
+                    <div>
+                        <label className="text-sm text-muted uppercase tracking-wider font-semibold flex items-center gap-2 mb-3">
+                            <Lock size={14} /> Password
                         </label>
                         <div className="relative">
                             <input
                                 type={showPassword ? 'text' : 'password'}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                placeholder="Enter admin password"
+                                placeholder="Enter password"
                                 disabled={isLoading}
                                 className="w-full bg-black/20 border border-gray-700 rounded-lg p-3 pr-12 text-white focus:border-primary outline-none disabled:opacity-50"
-                                autoFocus
                             />
                             <button
                                 type="button"
@@ -80,7 +95,7 @@ const LoginPage = () => {
                     {/* Submit Button */}
                     <button
                         type="submit"
-                        disabled={!password || isLoading}
+                        disabled={!username || !password || isLoading}
                         className="btn-primary w-full flex items-center justify-center gap-2"
                     >
                         {isLoading ? (
@@ -91,7 +106,7 @@ const LoginPage = () => {
                         ) : (
                             <>
                                 <Lock size={18} />
-                                Login as Admin
+                                Login
                             </>
                         )}
                     </button>
@@ -100,10 +115,7 @@ const LoginPage = () => {
                 {/* Footer Note */}
                 <div className="mt-8 pt-6 border-t border-white/5">
                     <p className="text-xs text-gray-500 text-center">
-                        Default password: <code className="bg-black/40 px-2 py-1 rounded">admin123</code>
-                    </p>
-                    <p className="text-xs text-gray-500 text-center mt-2">
-                        Please change this in production
+                        Contact Super Admin for access.
                     </p>
                 </div>
             </div>

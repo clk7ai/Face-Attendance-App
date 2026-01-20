@@ -1,99 +1,167 @@
 import React, { useRef, useState, useEffect } from 'react';
 import CameraFeed from '../components/CameraFeed';
-import { detectFace, fileToImage, drawDetections, detectAllFaces, getBestFace, createMatcher } from '../services/faceService';
+import { detectFace, fileToImage, drawDetections, detectAllFaces, getBestFace, createMatcher, estimateHeadPose, isSamePerson } from '../services/faceService';
 import { saveUser, generateUniqueId, getUsers } from '../services/storageService';
-import { UserPlus, Check, AlertCircle, Loader2, Building2, Upload, Camera as CameraIcon, RefreshCw } from 'lucide-react';
+import { getCurrentUser } from '../services/authService';
+import { UserPlus, Check, AlertCircle, Loader2, Building2, ScanFace, Camera as CameraIcon, RefreshCw } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+
+// Angle requirements for each step
+// Ranges are approximate degrees. 
+// UX Improvement: Minimal thresholds (>0.1 deg) - practically just quadrant checks.
+const STEPS = [
+    { label: 'Straight', instruction: 'Look Straight', check: (y, p) => Math.abs(y) < 35 && Math.abs(p) < 35 },
+    { label: 'Right-Top', instruction: 'Turn Top-Right', check: (y, p) => y < -0.1 && p < -0.1 },
+    { label: 'Right-Bottom', instruction: 'Turn Bottom-Right', check: (y, p) => y < -0.1 && p > 0.1 },
+    { label: 'Left-Bottom', instruction: 'Turn Bottom-Left', check: (y, p) => y > 0.1 && p > 0.1 },
+    { label: 'Left-Top', instruction: 'Turn Top-Left', check: (y, p) => y > 0.1 && p < -0.1 }
+];
 
 const RegistrationPage = ({ isModelLoaded }) => {
     const [name, setName] = useState('');
-    const [branch, setBranch] = useState('Malkajgiri');
+    // Entity is now derived from logged-in admin
+    const currentUser = getCurrentUser();
+    // Use entity property, fallback to 'Malkajgiri' if not found or 'All'
+    const entity = (currentUser && currentUser.entity && currentUser.entity !== 'All') ? currentUser.entity : 'Malkajgiri';
+    // Super admins might want to select, but user asked to remove field. We'll default to Malkajgiri or first available for now.
+    // If Super Admin needs selection, we can add it back later, but request said "remove branch field".
+
     const [isscanning, setIsscanning] = useState(false);
-    const [mode, setMode] = useState('live'); // 'live' | 'upload'
-    const [status, setStatus] = useState(null); // { type: 'success' | 'error', msg: '' }
-    const [previewImage, setPreviewImage] = useState(null);
-    const [selectedFile, setSelectedFile] = useState(null);
-    const [frozenDetection, setFrozenDetection] = useState(null);
+
+    // Multi-step capture state
+    const [currentStep, setCurrentStep] = useState(0);
+    const [capturedDescriptors, setCapturedDescriptors] = useState([]);
+    const [profileImage, setProfileImage] = useState(null);
+    const [duplicateFlag, setDuplicateFlag] = useState(null); // Stores ID of potential duplicate
+
+    const [status, setStatus] = useState(null);
+    const [feedback, setFeedback] = useState('Position your face...');
 
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
     const detectionInterval = useRef(null);
     const navigate = useNavigate();
 
-    const captureFace = async () => {
-        if (!videoRef.current) return false;
+    // Reset everything
+    const resetRegistration = () => {
+        setCapturedDescriptors([]);
+        setCurrentStep(0);
+        setProfileImage(null);
+        setStatus(null);
+        setFeedback('Position your face...');
+        setIsscanning(false);
+        setDuplicateFlag(null);
+    };
 
-        try {
-            const detections = await detectAllFaces(videoRef.current);
-            const best = getBestFace(detections);
+    // Auto Capture Logic
+    const attemptAutoCapture = async (detections) => {
+        if (!videoRef.current || isscanning) return;
 
-            if (!best) {
-                setStatus({ type: 'error', msg: 'No human face detected. Please face the camera.' });
-                return false;
-            }
+        const best = getBestFace(detections);
+        if (!best) {
+            setFeedback('No face detected.');
+            return;
+        }
 
-            // --- DE-DUPLICATION CHECK ---
+        // 1. Confidence Check
+        // Straight: Strict-ish (> 85%), Others: Ultra Lenient (> 40%) to ensure capture even if blurry/angled
+        const isStraight = currentStep === 0;
+        const minScore = isStraight ? 0.85 : 0.40;
+
+        if (best.detection.score < minScore) {
+            setFeedback('Hold steady / Better lighting...');
+            return;
+        }
+
+        // 2. Head Pose Check
+        const pose = estimateHeadPose(best.landmarks);
+        const stepReq = STEPS[currentStep];
+
+        const isAngleCorrect = stepReq.check(pose.yaw, pose.pitch);
+
+        if (!isAngleCorrect) {
+            setFeedback(`${stepReq.instruction} (Current: Y${pose.yaw.toFixed(0)}, P${pose.pitch.toFixed(0)})`);
+            return;
+        }
+
+        // 3. Duplicate Check (Only on Step 0)
+        let potentialDuplicate = null;
+        if (currentStep === 0) {
             const existingUsers = getUsers();
             if (existingUsers.length > 0) {
                 const matcher = createMatcher(existingUsers);
                 const match = matcher.findBestMatch(best.descriptor);
-
-                // 95% confidence = distance of approx 0.03 (since max is 0.6 for 'unknown')
-                // similarity = (1 - dist/0.6) * 100. So 95% means dist = 0.6 * (1 - 0.95) = 0.03
-                if (match.label !== 'unknown' && match.distance < 0.03) {
-                    console.warn(`Duplicate face detected: matched ${match.label} with distance ${match.distance}`);
-                    setStatus({
-                        type: 'error',
-                        msg: `User already registered as "${match.label}". Duplicate registrations are not allowed.`
-                    });
-                    return false;
+                if (match.label !== 'unknown' && match.distance < 0.4) {
+                    setFeedback(`Possible Match: ${match.label} (Flagging for Admin)`);
+                    potentialDuplicate = match.label;
                 }
             }
-            // ---------------------------
+        }
 
-            // Capture the image from video
+        if (potentialDuplicate) setDuplicateFlag(potentialDuplicate);
+
+        await performCapture(best);
+    };
+
+    const performCapture = async (detection) => {
+        setIsscanning(true); // temporary lock
+        try {
+            // Capture Image
             const canvas = document.createElement('canvas');
             canvas.width = videoRef.current.videoWidth;
             canvas.height = videoRef.current.videoHeight;
             const ctx = canvas.getContext('2d');
-            // Apply horizontal flip to match mirrored view
             ctx.translate(canvas.width, 0);
             ctx.scale(-1, 1);
             ctx.drawImage(videoRef.current, 0, 0);
-
             const imageData = canvas.toDataURL('image/jpeg', 0.8);
-            setPreviewImage(imageData);
-            setFrozenDetection(best);
-            setStatus({ type: 'success', msg: 'Face captured! Please review and finalize.' });
-            return true;
-        } catch (err) {
-            console.error("Capture failed:", err);
-            return false;
+
+            // Save Data
+            const newDescriptors = [...capturedDescriptors, detection.descriptor];
+            setCapturedDescriptors(newDescriptors);
+
+            if (currentStep === 0) {
+                setProfileImage(imageData);
+            }
+
+            // Move Next
+            if (currentStep < STEPS.length - 1) {
+                setStatus({ type: 'success', msg: `Captured ${STEPS[currentStep].label}!` });
+                setTimeout(() => {
+                    setCurrentStep(prev => prev + 1);
+                    setStatus(null);
+                    setIsscanning(false);
+                }, 1000); // 1s pause to show success
+            } else {
+                // Done
+                setStatus({ type: 'success', msg: 'All angles captured. Registering...' });
+                // We don't auto-register immediately, we wait for user to confirm Name? 
+                // Or if Name is filled, we can enable the "Save" button. 
+                // The request said "remove manual capture button", but we still need a "Finalize/Save" button for the form (Name).
+                setIsscanning(false);
+            }
+        } catch (e) {
+            console.error(e);
+            setIsscanning(false);
         }
     };
 
-    // Live Detection Loop
+    // Live Loop
     useEffect(() => {
-        if (mode === 'live' && isModelLoaded && !frozenDetection && !isscanning) {
+        const isComplete = capturedDescriptors.length === STEPS.length;
+
+        if (isModelLoaded && !isComplete && !isscanning) {
             detectionInterval.current = setInterval(async () => {
                 if (videoRef.current && canvasRef.current) {
                     const detections = await detectAllFaces(videoRef.current);
-
-                    // Show boxes with correct labels
                     drawDetections(canvasRef.current, videoRef.current, detections);
-
-                    // Check for high confidence face to auto-freeze (95% as requested)
-                    const best = getBestFace(detections);
-                    if (best && best.detection.score > 0.95) {
-                        console.log("Auto-capturing face with confidence:", best.detection.score);
-                        captureFace();
-                    }
+                    attemptAutoCapture(detections);
                 }
-            }, 250);
+            }, 250); // check 4 times a second
         } else {
             if (detectionInterval.current) clearInterval(detectionInterval.current);
-            // Clear canvas if frozen or scanning
-            if (canvasRef.current && (frozenDetection || isscanning)) {
+            if (canvasRef.current && (isComplete || isscanning)) {
+                // Clear canvas if frozen or complete
                 const ctx = canvasRef.current.getContext('2d');
                 ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
             }
@@ -102,21 +170,8 @@ const RegistrationPage = ({ isModelLoaded }) => {
         return () => {
             if (detectionInterval.current) clearInterval(detectionInterval.current);
         };
-    }, [mode, isModelLoaded, frozenDetection, isscanning]);
+    }, [isModelLoaded, currentStep, isscanning, capturedDescriptors.length]);
 
-    const handleFileChange = async (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-
-        setSelectedFile(file);
-        const reader = new FileReader();
-        reader.onload = (event) => {
-            setPreviewImage(event.target.result);
-        };
-        reader.readAsDataURL(file);
-        setStatus(null);
-        setFrozenDetection(null);
-    };
 
     const handleRegister = async () => {
         if (!name.trim()) {
@@ -125,232 +180,169 @@ const RegistrationPage = ({ isModelLoaded }) => {
         }
 
         setIsscanning(true);
-        setStatus(null);
-
         try {
-            let detection = frozenDetection;
-            let imageData = previewImage;
-
-            if (mode === 'live') {
-                if (!frozenDetection) {
-                    const captured = await captureFace();
-                    if (!captured) {
-                        setIsscanning(false);
-                        return;
-                    }
-                    // If we just captured, we stay in "frozen" state for user to click "Finalize"
-                    setIsscanning(false);
-                    return;
-                }
-                // If already frozen, we use the stored detection and imageData
-            } else {
-                if (!selectedFile) {
-                    setStatus({ type: 'error', msg: 'Please select an image first' });
-                    setIsscanning(false);
-                    return;
-                }
-                const img = await fileToImage(selectedFile);
-                detection = await detectFace(img);
-                imageData = previewImage;
-            }
-
-            if (!detection) {
-                setStatus({ type: 'error', msg: 'No face detected.' });
-                setIsscanning(false);
-                return;
-            }
-
-            // --- FINAL DE-DUPLICATION CHECK ---
-            const existingUsers = getUsers();
-            if (existingUsers.length > 0) {
-                const matcher = createMatcher(existingUsers);
-                const match = matcher.findBestMatch(detection.descriptor);
-                if (match.label !== 'unknown' && match.distance < 0.03) {
-                    setStatus({
-                        type: 'error',
-                        msg: `User already registered as "${match.label}". Duplicate registrations are not allowed.`
-                    });
-                    setIsscanning(false);
-                    return;
-                }
-            }
-            // ---------------------------------
-
             const userId = generateUniqueId(name);
             const user = {
                 id: userId,
                 name: name,
-                branch: branch,
-                descriptor: detection.descriptor,
+                entity: entity,
+                descriptors: capturedDescriptors,
+                duplicateOf: duplicateFlag, // Save flag
                 timestamp: new Date().toISOString()
             };
 
-            await saveUser(user, imageData);
+            await saveUser(user, profileImage);
             setStatus({ type: 'success', msg: `User ${name} registered successfully!` });
             setTimeout(() => navigate('/'), 2000);
 
         } catch (err) {
             console.error(err);
             setStatus({ type: 'error', msg: 'Registration failed. Try again.' });
-        } finally {
             setIsscanning(false);
         }
     };
 
-    const resetRegistration = () => {
-        setFrozenDetection(null);
-        setPreviewImage(null);
-        setSelectedFile(null);
-        setStatus(null);
-    };
+    const isFinished = capturedDescriptors.length === STEPS.length;
 
-    const fileInputRef = useRef(null);
+    // Helper positions for 5 dots around a circle (Clockwise logic for visual placement)
+    // 0: Straight (Top), 1: Right-Top, 2: Right-Bottom, 3: Left-Top, 4: Left-Bottom
+
 
     return (
-        <div className="flex flex-col items-center justify-center p-4">
-            <div className="glass-panel p-8 w-full max-w-2xl">
-                <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center gap-3">
-                        <UserPlus className="text-primary" size={28} />
-                        <h2 className="title text-2xl m-0">Register New User</h2>
-                    </div>
-                    <div className="flex bg-black/40 p-1 rounded-lg border border-gray-800">
-                        <button
-                            onClick={() => { setMode('live'); resetRegistration(); }}
-                            className={`px-4 py-1.5 rounded-md text-sm transition-all flex items-center gap-2 ${mode === 'live' ? 'bg-primary text-white' : 'text-muted hover:text-white'}`}
-                        >
-                            <CameraIcon size={14} /> Live
-                        </button>
-                        <button
-                            onClick={() => { setMode('upload'); resetRegistration(); }}
-                            className={`px-4 py-1.5 rounded-md text-sm transition-all flex items-center gap-2 ${mode === 'upload' ? 'bg-primary text-white' : 'text-muted hover:text-white'}`}
-                        >
-                            <Upload size={14} /> Upload
-                        </button>
+        <div className="flex flex-col items-center justify-center p-4 min-h-screen">
+            <div className="glass-panel p-8 w-full max-w-5xl flex flex-col md:flex-row gap-12 items-center">
+
+                {/* Left: Circular Camera UI */}
+                <div className="relative flex-none">
+                    {/* Container for Circle */}
+                    <div className="relative w-[400px] h-[400px] flex items-center justify-center">
+
+                        {/* Circular Progress SVG Arcs */}
+                        <svg className="absolute inset-0 w-full h-full z-20 pointer-events-none">
+                            {[0, 1, 2, 3, 4].map((i) => {
+                                const stepMap = [0, 1, 2, 3, 4];
+                                const stepIndex = stepMap[i];
+                                const s = STEPS[stepIndex];
+
+                                const centerAngle = 270 + (i * 72);
+                                const startAngle = centerAngle - 31;
+                                const endAngle = centerAngle + 31;
+
+                                const radius = 180;
+                                const center = 200;
+
+                                const toRad = d => d * Math.PI / 180;
+                                const x1 = center + radius * Math.cos(toRad(startAngle));
+                                const y1 = center + radius * Math.sin(toRad(startAngle));
+                                const x2 = center + radius * Math.cos(toRad(endAngle));
+                                const y2 = center + radius * Math.sin(toRad(endAngle));
+
+                                const d = [
+                                    "M", x1, y1,
+                                    "A", radius, radius, 0, 0, 1, x2, y2
+                                ].join(" ");
+
+                                const isActive = currentStep === stepIndex;
+                                const isCompleted = currentStep > stepIndex || isFinished;
+
+                                return (
+                                    <g key={i}>
+                                        <path d={d} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="12" strokeLinecap="round" />
+                                        <path
+                                            d={d}
+                                            fill="none"
+                                            stroke={isCompleted ? "#22c55e" : isActive ? "#2563eb" : "rgba(255,255,255,0.1)"}
+                                            strokeWidth={isActive ? "16" : "12"}
+                                            strokeLinecap="round"
+                                            className={`transition-all duration-500 ${isActive ? 'animate-pulse drop-shadow-[0_0_10px_rgba(37,99,235,0.5)]' : ''}`}
+                                        />
+
+                                    </g>
+                                );
+                            })}
+                        </svg>
+
+                        {/* The Camera Circle */}
+                        <div className="w-[320px] h-[320px] rounded-full overflow-hidden border-4 border-white/10 relative shadow-2xl bg-black">
+                            {isModelLoaded ? (
+                                isFinished ? (
+                                    <img src={profileImage} alt="Final Profile" className="w-full h-full object-cover" />
+                                ) : (
+                                    <>
+                                        <CameraFeed
+                                            onVideoReady={(el) => videoRef.current = el}
+                                            overlayRef={canvasRef}
+                                            className="w-full h-full aspect-auto rounded-none border-none max-w-none"
+                                        />
+                                        <div className="absolute inset-x-0 bottom-8 text-center pointer-events-none">
+                                            {isscanning ? (
+                                                <span className="bg-primary/90 text-white px-3 py-1 rounded-full text-sm animate-pulse">Capturing...</span>
+                                            ) : (
+                                                <span className="bg-black/60 text-white px-3 py-1 rounded-full text-sm backdrop-blur-md border border-white/10">{feedback}</span>
+                                            )}
+                                        </div>
+                                    </>
+                                )
+                            ) : (
+                                <div className="flex flex-col items-center justify-center h-full text-muted gap-2">
+                                    <Loader2 className="animate-spin text-primary" size={32} />
+                                    <span className="text-xs">Loading Models...</span>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
 
-                <div className="flex flex-col gap-6">
-                    <div className="flex justify-center min-h-[300px] relative">
-                        {mode === 'live' ? (
-                            isModelLoaded ? (
-                                frozenDetection ? (
-                                    <div className="relative w-full max-w-[640px] aspect-video rounded-2xl overflow-hidden border border-primary/50">
-                                        <img src={previewImage} alt="Captured" className="w-full h-full object-cover" />
-                                        <div className="absolute inset-0 bg-primary/10 flex items-center justify-center">
-                                            <div className="bg-primary/80 text-white px-4 py-2 rounded-full flex items-center gap-2">
-                                                <Check size={18} /> Face Captured
-                                            </div>
-                                        </div>
-                                        <button
-                                            onClick={resetRegistration}
-                                            className="absolute top-4 right-4 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-colors"
-                                        >
-                                            <RefreshCw size={20} />
-                                        </button>
-                                    </div>
-                                ) : (
-                                    <CameraFeed
-                                        onVideoReady={(el) => videoRef.current = el}
-                                        overlayRef={canvasRef}
-                                    />
-                                )
-                            ) : (
-                                <div className="h-64 w-full max-w-[640px] flex items-center justify-center text-muted bg-black/20 rounded-2xl border border-dashed border-gray-700">
-                                    <div className="flex flex-col items-center gap-2">
-                                        <Loader2 className="animate-spin text-primary" />
-                                        <span>Loading Face Models...</span>
-                                    </div>
-                                </div>
-                            )
-                        ) : (
-                            <div
-                                onClick={() => fileInputRef.current?.click()}
-                                className="w-full max-w-[640px] aspect-video bg-black/20 rounded-2xl border-2 border-dashed border-gray-700 flex flex-col items-center justify-center cursor-pointer hover:border-primary/50 transition-colors overflow-hidden group"
-                            >
-                                {previewImage ? (
-                                    <div className="relative w-full h-full">
-                                        <img src={previewImage} alt="Preview" className="w-full h-full object-contain" />
-                                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-                                            <span className="text-white text-sm bg-black/60 px-3 py-1.5 rounded-full">Change Image</span>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div className="flex flex-col items-center gap-3 text-muted">
-                                        <Upload size={48} className="text-gray-600" />
-                                        <div className="text-center">
-                                            <p className="font-semibold text-gray-300">Click to upload photo</p>
-                                            <p className="text-xs">Supports JPG, PNG (Max 5MB)</p>
-                                        </div>
-                                    </div>
-                                )}
-                                <input
-                                    type="file"
-                                    ref={fileInputRef}
-                                    className="hidden"
-                                    accept="image/*"
-                                    onChange={handleFileChange}
-                                />
-                            </div>
-                        )}
+                {/* Right: Form Actions */}
+                <div className="flex-1 w-full max-w-sm flex flex-col gap-6">
+                    <div>
+                        <h2 className="title text-3xl mb-2">Registration</h2>
+                        <p className="text-gray-400 text-sm">Follow the green indicators to capture all 5 face angles.</p>
                     </div>
 
-                    <div className="flex flex-col gap-4">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label className="text-sm text-muted uppercase tracking-wider font-semibold">Full Name : </label>
-                                <input
-                                    type="text"
-                                    placeholder="Enter person's name"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    disabled={isscanning}
-                                    className="mt-3"
-                                />
-                            </div>
-
-                            <div>
-                                <label className="text-sm text-muted uppercase tracking-wider font-semibold flex items-center gap-2"><Building2 size={14} /> Branch</label>
-                                <select
-                                    value={branch}
-                                    onChange={(e) => setBranch(e.target.value)}
-                                    disabled={isscanning}
-                                    className="mt-1 w-full bg-black/20 border border-gray-700 rounded-lg p-3 text-white focus:border-primary outline-none disabled:opacity-50"
-                                >
-                                    <option value="Malkajgiri">Malkajgiri</option>
-                                    <option value="Manikonda">Manikonda</option>
-                                </select>
-                            </div>
+                    <div className="space-y-4 bg-white/5 p-6 rounded-2xl border border-white/10">
+                        <div>
+                            <label className="text-xs text-muted uppercase tracking-wider font-bold mb-2 block">Full Name</label>
+                            <input
+                                type="text"
+                                placeholder="Enter Name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                disabled={isscanning}
+                                className="w-full bg-black/20 border border-gray-700 rounded-lg p-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none"
+                            />
                         </div>
 
-                        {!frozenDetection ? (
-                            <button
-                                onClick={handleRegister}
-                                disabled={isscanning || (mode === 'live' && !isModelLoaded) || (mode === 'upload' && !selectedFile)}
-                                className="btn-primary flex items-center justify-center gap-2 mt-4 disabled:opacity-50 h-12"
-                            >
-                                {isscanning ? <Loader2 className="animate-spin" /> : (mode === 'live' ? <CameraIcon size={18} /> : <Check size={18} />)}
-                                {isscanning ? 'Verifying...' : (mode === 'live' ? 'Capture Face' : 'Register User')}
-                            </button>
-                        ) : (
-                            <button
-                                onClick={handleRegister}
-                                disabled={isscanning}
-                                className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 mt-4 h-12 transition-colors"
-                            >
-                                {isscanning ? <Loader2 className="animate-spin" /> : <UserPlus size={18} />}
-                                {isscanning ? 'Syncing...' : 'Finalize Registration'}
-                            </button>
-                        )}
+
                     </div>
 
-                    {status && (
-                        <div className={`p-4 rounded-lg flex items-center gap-3 animate-in fade-in slide-in-from-bottom-2 ${status.type === 'success' ? 'bg-green-500/20 text-green-200 border border-green-500/30' : 'bg-red-500/20 text-red-200 border border-red-500/30'
-                            }`}>
-                            {status.type === 'success' ? <Check className="shrink-0" size={18} /> : <AlertCircle className="shrink-0" size={18} />}
-                            <span className="text-sm font-medium">{status.msg}</span>
+                    {status && status.msg && (
+                        <div className={`p-4 rounded-xl flex items-start gap-3 text-sm animate-in fade-in transition-all ${status.type === 'success' ? 'bg-green-500/10 text-green-200 border border-green-500/20' : 'bg-red-500/10 text-red-200 border border-red-500/20'}`}>
+                            {status.type === 'success' ? <Check className="shrink-0" size={16} /> : <AlertCircle className="shrink-0" size={16} />}
+                            <span>{status.msg}</span>
                         </div>
                     )}
+
+                    <div className="flex gap-3 mt-auto">
+                        <button
+                            onClick={resetRegistration}
+                            className="p-4 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 transition-colors"
+                            title="Reset"
+                        >
+                            <RefreshCw size={20} />
+                        </button>
+
+                        {isFinished && (
+                            <button
+                                onClick={handleRegister}
+                                disabled={isscanning || !name.trim()}
+                                className="flex-1 bg-green-600 hover:bg-green-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-green-900/20 transition-all hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                {isscanning ? <Loader2 className="animate-spin" /> : <UserPlus size={20} />}
+                                Finalize
+                            </button>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
